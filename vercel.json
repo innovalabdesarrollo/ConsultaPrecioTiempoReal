@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "sveltekit",
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @cpt/web build",
+  "outputDirectory": "apps/web/.vercel/output",
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30,
+      "memory": 1024,
+      "includeFiles": "apps/api/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ]
+}
